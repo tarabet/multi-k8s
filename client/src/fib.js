@@ -52,14 +52,16 @@ class Fib extends Component {
 
     await axios.post('/api/values', {
       index: this.state.index
-    });
+    })
+      .then(() => {
+        this.fetchValues();
+        this.fetchIndexes();
+      });
 
     this.setState({ index: "" })
   };
 
   render() {
-    console.log("STATE", this.state)
-
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
