@@ -28,20 +28,31 @@ class Fib extends Component {
   }
 
   renderSeenIndexes() {
-    return this.state.seenIndexes.map(({ number }) => {
-      return number
-    }).join(', ');
+    const { seenIndexes } = this.state;
+
+    if (seenIndexes && seenIndexes.length > 0) {
+      return this.state.seenIndexes.map(({ number }) => {
+        return number
+      }).join(', ');
+    } else {
+      return <p>No indexes received</p>
+    }
+
+
   }
 
   renderValues() {
     const entries = [];
+    const { values } = this.state;
 
-    for (let key in this.state.values) {
-      entries.push(
-        <div key={key}>
-          For index {key} I have calculated {this.state.values[key]} number.
-        </div>
-      )
+    if (values && values.length > 0) {
+      for (let key in this.state.values) {
+        entries.push(
+          <div key={key}>
+            For index {key} I have calculated {this.state.values[key]} number.
+          </div>
+        )
+      }
     }
 
     return entries;
