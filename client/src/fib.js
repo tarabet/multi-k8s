@@ -45,14 +45,12 @@ class Fib extends Component {
     const entries = [];
     const { values } = this.state;
 
-    if (Array.isArray(values) && values.length > 0) {
-      for (let key in this.state.values) {
-        entries.push(
-          <div key={key}>
-            For index {key} I have calculated {this.state.values[key]} number.
-          </div>
-        )
-      }
+    for (let key in this.state.values) {
+      entries.push(
+        <div key={key}>
+          For index {key} I have calculated {this.state.values[key]} number.
+        </div>
+      )
     }
 
     return entries;

@@ -7,7 +7,7 @@ const redisClient = redis.createClient({
   retry_strategy: () => 1000
 });
 
-console.log("REDIS IN WORKER", redisClient)
+console.log("REDIS IN WORKER", redisClient);
 
 const sub = redisClient.duplicate();
 
