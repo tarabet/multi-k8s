@@ -28,11 +28,11 @@ spec:
     - host: www.aws-learn-domain.me.uk
       http:
         paths:
-            - path: /?(.*)
-              backend:
-                serviceName: client-cluster-ip-service
-                servicePort: 3000
-                - path: /api/?(.*)
-                  backend:
-                    serviceName: server-cluster-ip-service
-                    servicePort: 5000
+          - path: /?(.*)
+            backend:
+              serviceName: client-cluster-ip-service
+              servicePort: 3000
+          - path: /api/?(.*)
+            backend:
+              serviceName: server-cluster-ip-service
+              servicePort: 5000
