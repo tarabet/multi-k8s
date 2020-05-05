@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: aws-learn-domain-me-uk-tls
+spec:
+  secretName: aws-learn-domain-me-uk
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: aws-learn-domain.me.uk
+  dnsNames:
+    - aws-learn-domain.me.uk
+    - www.aws-learn-domain.me.uk
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - aws-learn-domain.me.uk
+          - www.aws-learn-domain.me.uk
