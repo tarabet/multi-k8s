@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <p>CHANGED PAGE></p>
+          <p>CHANGED PAGE!</p>
           <Link to="/">Home</Link>
           <Link to="/other-page">Other Page</Link>
           <div>
