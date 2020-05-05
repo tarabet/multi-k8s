@@ -1,6 +1,10 @@
 sudo: required
 services:
   - docker
+env:
+  global:
+    - SHA=$(git parse-rev HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_15a61a882a2f_key -iv $encrypted_15a61a882a2f_iv -in multi-k8s-275916-d260ce290081.json.enc -out multi-k8s-275916-d260ce290081.json -d
@@ -16,3 +20,10 @@ before_install:
 
 script:
   - docker run -e CI=true tarabet/client-test npm test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
+
